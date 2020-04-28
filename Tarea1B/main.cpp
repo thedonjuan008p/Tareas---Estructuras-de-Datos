@@ -1,10 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include <conio.h>
 
 
 using namespace std; //Para ir mostrando datos.
+
 
 void sumar_arreglo(int arreglo[][5]){
     for (int i = 0; i<5;i++){
@@ -12,18 +12,68 @@ void sumar_arreglo(int arreglo[][5]){
     }
 }
 
-int main(void){
+void restar_arreglo(int arreglo[][5]){
+    for (int i = 0; i<5;i++){
+        arreglo[3][i] = arreglo[0][i] - arreglo[1][i];
+    }
+}
 
+void multiplicar_arreglo(int arreglo[][5]){
+    for (int i = 0; i<5;i++){
+        arreglo[4][i] = arreglo[0][i] * arreglo[1][i];
+    }
+}
+
+float promedio (int arr[][5])
+{
+    int sum = 0;
+
+    for (int fil = 0; fil < 5; fil++)
+    {
+        for (int col = 0; col < 5; col++)
+        {
+            sum = sum + arr[fil][col];
+        }
+        
+    }
+    return (float) sum / 25;
+    
+}
+
+void print_resultado(int arr[][5])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    cout << promedio(arr)<< endl;
+}
+
+int main(int argc, char **argv){
     //Arreglo que nos piden
     int array[5][5], i = 0,j = 0; 
 
     //Variables para guardar datos del archivo
     char linea[100];
     char* particion;
+
+    for (int i = 0; i < 5; i++) // Inicializar Array
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            array[i][j] = 0;
+        }
+    }
+    
 	
 	//Lectura de archivo
     ifstream archivo;
-    archivo.open("archivo.txt", ios::out);
+    archivo.open(argv[1]);
     if (archivo.is_open()){
         while (!archivo.eof()){
             archivo.getline(linea,100);
@@ -54,11 +104,14 @@ int main(void){
         }
         
     } else{
-        cout<<"No se pudo abrir el archivo.";
+        cout<<"No se pudo abrir el archivo." << endl;
     }
 
     sumar_arreglo(array); //Aqui termina parte de Juan...
+    restar_arreglo(array); 
+    multiplicar_arreglo(array);
+    print_resultado(array);
     
     
-    getch(); //Para que se detenga aqui.
+    return 0;
 }

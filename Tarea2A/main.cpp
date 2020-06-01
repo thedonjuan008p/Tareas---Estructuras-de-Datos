@@ -4,12 +4,6 @@
 
 using namespace std;
 
-string split_info(string s) //Separar String de agregado de datos
-{
-
-
-}
-
 int main(int argc, char **argv)
 {
 

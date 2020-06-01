@@ -45,9 +45,37 @@ int main(int argc, char **argv)
         }
         else if (prtial_entry == "add")
         {
-            int index = stoi(fll_entry.substr(0, delim_pos));
-            cout << index + index << endl;
-            cout << "add" << endl;
+
+            try
+            {
+
+            delim_pos = fll_entry.find(frst_delimeter);
+            string temp = fll_entry.substr(0, delim_pos);
+            int index = stoi(temp);
+            fll_entry.erase(0, delim_pos + frst_delimeter.length());
+
+            string cancion;
+            delim_pos = fll_entry.find(scnd_delimeter);
+            temp = fll_entry.substr(0, delim_pos);
+            fll_entry.erase(0, delim_pos + scnd_delimeter.length());
+            cancion = temp;
+
+            string artista;
+            delim_pos = fll_entry.find(scnd_delimeter);
+            temp = fll_entry.substr(0, delim_pos);
+            fll_entry.erase(0, delim_pos +  scnd_delimeter.length());
+            artista = temp;
+
+            int duracion = stoi(fll_entry);
+
+            }
+            catch (int e)
+            {
+                cout << "Ha ocurrido un error " << e;
+            }
+
+
+
         }
         else if (prtial_entry == "remove")
         {

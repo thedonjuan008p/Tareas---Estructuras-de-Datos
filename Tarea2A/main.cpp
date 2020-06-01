@@ -4,6 +4,12 @@
 
 using namespace std;
 
+string split_info(string s) //Separar String de agregado de datos
+{
+
+
+}
+
 int main(int argc, char **argv)
 {
 
@@ -24,13 +30,10 @@ int main(int argc, char **argv)
     while (true)
     {
         getline(cin,fll_entry);
-        cout << fll_entry << endl;
 
         int delim_pos = fll_entry.find(frst_delimeter);
-        string prtial_entry = fll_entry.substr(0, delim_pos);
-        cout << prtial_entry;
-        fll_entry.erase(0, delim_pos + frst_delimeter.length());
-        cout << fll_entry;
+        string prtial_entry = fll_entry.substr(0, delim_pos); // Primera palabra ingresada
+        fll_entry.erase(0, delim_pos + frst_delimeter.length()); //Resto de la palabra ingresada
 
         if (prtial_entry == "info")
         {
@@ -42,10 +45,13 @@ int main(int argc, char **argv)
         }
         else if (prtial_entry == "add")
         {
+            int index = stoi(fll_entry.substr(0, delim_pos));
+            cout << index + index << endl;
             cout << "add" << endl;
         }
         else if (prtial_entry == "remove")
         {
+            int index = stoi(fll_entry.substr(0, delim_pos));
             cout << "remove" << endl;
         }
         else if (prtial_entry == "exit")

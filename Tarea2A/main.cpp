@@ -31,11 +31,11 @@ int main(int argc, char **argv)
 
         if (prtial_entry == "info")
         {
-            cout << "info" << endl;
+            continue;
         }
         else if (prtial_entry == "print")
         {
-            cout << "print" << endl;
+            continue;
         }
         else if (prtial_entry == "add")
         {
@@ -74,11 +74,9 @@ int main(int argc, char **argv)
         else if (prtial_entry == "remove")
         {
             int index = stoi(fll_entry.substr(0, delim_pos));
-            cout << "remove" << endl;
         }
         else if (prtial_entry == "exit")
         {
-            cout << "exit" << endl;
             break;
         }
         else
